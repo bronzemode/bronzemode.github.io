@@ -1,3 +1,5 @@
+const CORS = 'https://cors-anywhere.herokuapp.com/';
+
 const createImage = (item) => {
   const img = document.createElement('img');
   img.src = `https://www.osrsbox.com/osrsbox-db/items-icons/${item.id}.png`;
@@ -24,9 +26,12 @@ const showItems = () => {
   itemsEl.innerHTML = '';
   
   if (input.startsWith('http')) {
-    fetch(input)
-      .then(res => res.text())
-      .then(res => addImages(itemsEl, res));
+    var x = new XMLHttpRequest();
+    x.open('GET', CORS + input);
+    x.onload = () => {
+      addImages(itemsEl, x.responseText);
+    };
+    x.send();
   } else {
     addImages(itemsEl, input);
   }

@@ -41,7 +41,7 @@ const params = window.location.search
 if (params.has('data')) {
   let data = params.get('data');
   if (!data.startsWith('http') && !data.startsWith('[') && !data.startsWith('{')) {
-    data = 'https://pastebin.com/raw/' + data;
+    data = 'https://hastebin.com/raw/' + data;
   }
   document.getElementById('acc-data').value = data;
   showItems();

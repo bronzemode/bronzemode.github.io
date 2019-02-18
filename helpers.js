@@ -19,13 +19,9 @@ const addImages = (parent, data) => {
 const showItems = () => {
   const dataEl = document.getElementById('acc-data');
   const itemsEl = document.getElementById('items');
-  let input = dataEl.value;
+  const input = dataEl.value;
   
   itemsEl.innerHTML = '';
-  
-  if (!input.startsWith('http') && !input.startsWith('[') && !input.startsWith('{')) {
-    input = 'https://pastebin.com/raw/' + input;
-  }
   
   if (input.startsWith('http')) {
     fetch(input)
@@ -43,6 +39,10 @@ const params = window.location.search
   .reduce((map, [key, value]) => map.set(key, decodeURIComponent(value)), new Map()); 
 
 if (params.has('data')) {
-  document.getElementById('acc-data').value = params.get('data');
+  let data = params.get('data');
+  if (!data.startsWith('http') && !data.startsWith('[') && !data.startsWith('{')) {
+    data = 'https://pastebin.com/raw/' + data;
+  }
+  document.getElementById('acc-data').value = data;
   showItems();
 }

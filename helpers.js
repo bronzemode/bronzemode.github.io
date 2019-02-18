@@ -19,9 +19,13 @@ const addImages = (parent, data) => {
 const showItems = () => {
   const dataEl = document.getElementById('acc-data');
   const itemsEl = document.getElementById('items');
-  const input = dataEl.value;
+  let input = dataEl.value;
   
   itemsEl.innerHTML = '';
+  
+  if (!input.startsWith('http') && !input.startsWith('[') && !input.startsWith('{')) {
+    input = 'https://pastebin.com/raw/' + input;
+  }
   
   if (input.startsWith('http')) {
     fetch(input)

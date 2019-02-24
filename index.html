@@ -8,12 +8,21 @@
 </head>
 <body>
   <h2>Items:</h2>
+  <div id="filters">
+    <p>High Alch Filter:</p>
+    <span id="ha-filter-min">0</span>
+    <input type="range" id="ha-filter" min="0" max="0" step="50">
+    <span id="ha-filter-max">0</span>
+  </div>
   <div id="items">
     <p>None!</p>
   </div>
   <h2>Enter Data:</h2>
-  <textarea id="acc-data" rows="12" cols="50"></textarea>
-  <button onclick="showItems()">Get Item List</button>
+  <div id="data">
+    <textarea id="acc-data"></textarea>
+    <button onclick="showItems()">Get Item List</button>
+  </div>
+  <script src="items-complete.js"></script>
   <script src="helpers.js" type="text/javascript"></script>
 </body>
 </html>

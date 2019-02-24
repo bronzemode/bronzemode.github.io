@@ -1,24 +1,32 @@
-body {
-  display: flex;
-  adjust-items: center;
-  justify-content: center;
-  flex-flow: row wrap;
-}
-
-h2, button {
-  flex: 1;
-  flex-basis: 100%;
+h2, #filters p {
+  flex: 0 0 100%;
   text-align: center;
 }
 
-#acc-data {
-  flex: 1;
-  margin-bottom: 20px;
-}
-
-#items {
+#filters, #items {
+  width: 100%;
   display: flex;
   adjust-items: center;
   justify-content: center;
   flex-flow: row wrap;
+  text-align: center;
+}
+
+#ha-filter-min {
+  padding-right: 10px;
+}
+
+#items {
+  margin-top: 20px;
+}
+
+#acc-data, #data button {
+  display: block;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 10px;
+}
+
+#acc-data {
+  height: 250px;
 }

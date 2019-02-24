@@ -13,7 +13,8 @@ const addImages = (parent, data) => {
     for (let item of items) {
       parent.appendChild(createImage(item));
     }
-  } catch (_) {
+  } catch (err) {
+    console.log(err);
     parent.appendChild(document.createTextNode('None!'));
   }
 }
